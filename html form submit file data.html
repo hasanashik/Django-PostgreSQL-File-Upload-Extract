@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<!--<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">-->
+
+<body style="margin-top: 100px;">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-10">
+          <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+            <div class="form-row">
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <label for="formFileSm" class="form-label">Data sheet upload:</label>
+                  <select class="form-control" id="DataSheetFileType" name="DataSheetFileType">
+                    <option>JPG</option>
+                    <option>PDF</option>
+                  </select>
+                  <input class="form-control form-control-sm" id="DataSheetFile" name="DataSheetFile" type="file" />
+                </div>
+                <div class="col-md-4 mb-3"></div>
+                <div class="col-md-4 mb-3">
+                  <label for="formFileSm" class="form-label">Chassis/slot view file upload:</label>
+                  <select class="form-control" id="ChassisFileType" name="ChassisFileType">
+                    <option>JPG</option>
+                    <option>PDF</option>
+                  </select>
+                  <input class="form-control form-control-sm" id="ChassisFile" name="ChassisFile" type="file" />
+                </div>
+                
+            </div>
+            <button class="btn btn-primary" type="submit" value="OK">Submit</button>
+            <br>
+            <br>
+            <br>
+          </form>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}
+

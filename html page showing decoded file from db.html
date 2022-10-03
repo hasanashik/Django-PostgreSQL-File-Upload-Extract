@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<title> Device Model </title>
+
+<body style="margin-top: 100px;">
+<!-- ***** model form Area Starts ***** -->
+  <div class="container">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-10">
+          <div class="col-md-6 mb-3">
+            <div class="col-md-12 mb-3">
+
+              <p>Data sheet file: </p>
+              {% if datasheetuploadfiletype == 'JPG' %}
+              <img width="500" height="500" src="data:image/jpg;base64, {{ datasheetuploadfile }}">
+              {% elif datasheetuploadfiletype == 'PDF' %}
+              <embed src="data:application/pdf;base64, {{ datasheetuploadfile }}" width="1000px" height="1800px" /> 
+              {% endif %}
+               
+              
+              <p>Chassis/slot view file: </p>
+              {% if chassisslotuploadfiletype == 'JPG' %}
+              <img width="500" height="500" src="data:image/jpg;base64, {{ chassisslotuploadfile }}">
+              {% elif chassisslotuploadfiletype == 'PDF' %}
+              <embed src="data:application/pdf;base64, {{ chassisslotuploadfile }}" width="1000px" height="1800px" /> 
+              {% endif %}
+                
+            </div>
+          </div>
+          <div class="col-md-12 mb-3">
+            <br>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** model form Area Ends ***** -->
+</body>
+{% endblock %}
+
